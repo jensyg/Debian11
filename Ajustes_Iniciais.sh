@@ -1,4 +1,10 @@
 #!/usr/bin/env bash
+pacote=$(dpkg --get-selections | grep "figlet" )
+	if [ -n "$pacote" ] ;then
+		echo
+	else
+		apt-get install figlet -qq > /dev/null
+	fi
 
 #FUNÇÃO DE CREAR EL LOGO DE LA EMPRESA
 Logo_Empresa(){
@@ -18,12 +24,6 @@ sleep 1
 DEBIAN_FRONTEND=noninteractive
 export DEBIAN_FRONTEND
 EMPRESA=SYSTEC
-pacote=$(dpkg --get-selections | grep "figlet" )
-	if [ -n "$pacote" ] ;then
-		echo
-	else
-		apt-get install figlet -qq > /dev/null
-	fi
 
 
 
